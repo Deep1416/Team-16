@@ -1,0 +1,15 @@
+.box{
+    width: 230px;
+}
+
+.tittle{
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px;
+}
+
+.addBkmark{
+    width: 30px;
+    height: 30px;
+}
