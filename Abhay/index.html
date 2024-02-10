@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Invoice Generator - Abhay Panchal</title>
+  </head>
+  <body>
+    <form>
+      <div
+        class="bg-[#F2F3F7] relative px-4 w-full h-fit py-4 md:flex-col flex justify-start gap-4 flex-col"
+      >
+        <!-- Left section -->
+        <div
+          class="w-full md:w-[70%] lg:ml-[1rem] xl:ml-[3rem] h-[100vh] rounded-md bg-white border px-4 md:px-10 overflow-y-scroll pb-4 scn"
+        >
+          <!-- current date due date -->
+          <div class="flex w-full flex-col border-b py-10">
+            <div class="w-full flex justify-between items-center">
+              <!-- current-date -->
+              <div class="flex items-center text-[0.8rem] gap-1">
+                <p class="font-bold">Current date:</p>
+                <span id="current-date"></span>
+              </div>
+              <!-- Invoice -->
+              <div
+                class="flex sm:flex-row flex-col items-center text-[0.8rem] gap-1 rounded-md"
+              >
+                <p class="font-bold">Invoice Number:</p>
+                <span class="bg-gray-100">
+                  <input
+                    id="invoice-number"
+                    type="number"
+                    value="1"
+                    class="bg-gray-100 w-[4rem] py-2 px-2 rounded-md outline-none"
+                  />
+                </span>
+              </div>
+            </div>
+            <!-- due date -->
+            <div class="flex items-center text-[0.8rem] gap-1">
+              <p class="font-bold">Due Date:</p>
+              <input
+                type="date"
+                id="due-date"
+                class="bg-gray-100 px-4 py-2 rounded-md outline-none"
+                required
+              />
+            </div>
+          </div>
+          <!-- Bill to bill from -->
+          <div class="w-full flex py-4 justify-between">
+            <!-- bill to -->
+            <div
+              class="flex flex-col w-[49%] gap-3 justify-start text-[0.8rem]"
+            >
+              <p class="font-bold">Bill to:</p>
+              <div class="flex flex-col gap-2">
+                <input
+                  type="text"
+                  placeholder="Who is this invoice to?"
+                  class="w-full px-2 py-2 bg-gray-100 rounded-md"
+                  id="bill-to-name"
+                  required
+                />
+                <input
+                  type="email"
+                  placeholder="Email Address"
+                  class="w-full px-2 py-2 bg-gray-100 rounded-md"
+                  required
+                  id="bill-to-email"
+                />
+                <input
+                  type="text"
+                  placeholder="Billing Address"
+                  class="w-full px-2 py-2 bg-gray-100 rounded-md"
+                  required
+                  id="bill-to-address"
+                />
+              </div>
+            </div>
+            <!-- bill from -->
+            <div
+              class="flex flex-col w-[49%] gap-3 justify-start text-[0.8rem]"
+            >
+              <p class="font-bold">Bill from:</p>
+              <div class="flex flex-col gap-2">
+                <input
+                  type="text"
+                  placeholder="Who is this invoice to?"
+                  class="w-full px-2 py-2 bg-gray-100 rounded-md"
+                  required
+                  id="bill-from-name"
+                />
+                <input
+                  type="email"
+                  placeholder="Email Address"
+                  class="w-full px-2 py-2 bg-gray-100 rounded-md"
+                  required
+                  id="bill-from-email"
+                />
+                <input
+                  type="text"
+                  placeholder="Billing Address"
+                  class="w-full px-2 py-2 bg-gray-100 rounded-md"
+                  required
+                  id="bill-from-address"
+                />
+              </div>
+            </div>
+          </div>
+          <!-- Items -->
+          <div class="text-[0.8rem] mt-[2rem]">
+            <!-- Items fields -->
+            <div class="w-full border-t flex border-b py-2">
+              <div class="font-bold w-full uppercase">Item</div>
+              <div class="font-bold w-[10rem] uppercase">Qty</div>
+              <div class="font-bold w-[15rem] uppercase">Price/Rate</div>
+              <div class="font-bold w-[10rem] uppercase">action</div>
+            </div>
+            <div class="items-container">
+              <!-- Individual Items Here -->
+            </div>
+            <button
+              class="mt-2 hover:bg-blue-700 transition-colors duration-300 px-2 py-3 text-white font-bold bg-blue-600 rounded-md"
+              id="addItem"
+            >
+              Add Item
+            </button>
+          </div>
+          <!-- total section -->
+          <div class="text-[0.8rem] w-full flex justify-end border-b">
+            <div class="w-[40%] flex flex-col">
+              <!-- sub - discount - tax -->
+              <div class="flex flex-col gap-2 border-b-2 py-2">
+                <!-- Subtotal -->
+                <div class="w-full flex justify-between">
+                  <p class="font-bold">Subtotal:</p>
+                  <div class="flex">
+                    <span class="symbol">$</span>
+                    <p id="subtotal">0</p>
+                  </div>
+                </div>
+                <!-- discount -->
+                <div class="w-full flex justify-between">
+                  <p class="font-bold">Discount:</p>
+                  <div class="flex">
+                    <span class="discount">(0%)</span>
+                    <span class="symbol">$</span>
+                    <p id="discount"></p>
+                  </div>
+                </div>
+                <!-- tax -->
+                <div class="w-full flex justify-between">
+                  <p class="font-bold">Tax:</p>
+                  <div class="flex">
+                    <span class="tax">(0%)</span>
+                    <span class="symbol">$</span>
+                    <p id="tax">0</p>
+                  </div>
+                </div>
+              </div>
+              <!-- Total -->
+              <div
+                class="w-full flex justify-between font-bold text-[1rem] py-4"
+              >
+                <p class="total text-[1rem] font-bold">Total:</p>
+                <div class="flex">
+                  <span class="symbol">$</span>
+                  <p id="total">0</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Notes -->
+          <div class="w-full flex flex-col gap-2">
+            <p class="text-[0.8rem] font-bold pt-6">Notes:</p>
+            <textarea
+              id="thankYouMessage"
+              cols="30"
+              rows="1"
+              class="w-full bg-gray-100 py-2 px-2 rounded-md placeholder:text-[0.8rem] outline-none text-[0.8rem]"
+              placeholder="Thanks for your business!"
+            ></textarea>
+          </div>
+        </div>
+
+        <!-- Right section -->
+        <div
+          class="md:fixed right-[3rem] rounded-md w-full md:w-[22%] h-[50vh] flex flex-col"
+        >
+          <div class="w-full py-4 border-b">
+            <button
+              type="submit"
+              class="w-full bg-blue-600 py-3 rounded-md text-white font-semibold text-[0.8rem] hover:bg-blue-700 transition-colors duration-300"
+              id="reviewInvoice"
+            >
+              Review Invoice
+            </button>
+          </div>
+          <!-- currency tax Discount -->
+          <div class="flex flex-col text-[0.8rem] py-6 gap-3">
+            <!-- Currency -->
+            <div class="flex flex-col gap-2">
+              <p class="font-bold">Currency:</p>
+              <select
+                id="currency"
+                class="outline-none py-3 px-2 rounded-md shadow-md cursor-pointer"
+              >
+                <option value="USD" selected>USD (United States Dollar)</option>
+                <option value="GBP">GBP (British Pound Sterling)</option>
+                <option value="JPY">JPY (Japnese Yen)</option>
+                <option value="CAD">CAD (Canadian Dollar)</option>
+                <option value="AUD">AUD (Australian Dollar)</option>
+                <option value="SGD">SGD (Singapor Dollar)</option>
+                <option value="CNY">CNY (Chinese Renminbi)</option>
+                <option value="BTC">BTC (Bitcoin)</option>
+              </select>
+            </div>
+            <!-- Tax -->
+            <div class="flex flex-col gap-2">
+              <p class="font-bold">Tax Rate:</p>
+              <div class="flex w-full">
+                <input
+                  type="number"
+                  class="w-[90%] py-2 px-2 border outline-none rounded-sm"
+                  value="0"
+                  id="tax-rate"
+                />
+                <p
+                  class="w-[10%] flex py-2 px-2 bg-[#F8F9FA] border rounded-sm"
+                >
+                  %
+                </p>
+              </div>
+            </div>
+            <!-- Discount rate -->
+            <div class="flex flex-col gap-2">
+              <p class="font-bold">Discount Rate:</p>
+              <div class="flex w-full">
+                <input
+                  type="number"
+                  class="w-[90%] py-2 px-2 border outline-none rounded-sm"
+                  value="0"
+                  id="discount-rate"
+                />
+                <p
+                  class="w-[10%] flex py-2 px-2 bg-[#F8F9FA] border rounded-sm"
+                >
+                  %
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Invoice -->
+        <div
+          class="w-full hidden justify-center items-start py-10 absolute top-0 left-0 bg-[#0f0f0fbe] h-full"
+          id="invoice-container"
+        >
+          <div
+            id="bill-container"
+            class="w-[90%] md:w-[70%] lg:w-[55%] rounded-lg bg-white"
+          >
+            <!-- to details and amount due-->
+            <div
+              class="h-[7rem] flex items-center rounded-lg w-full bg-gray-100"
+            >
+              <div class="w-full flex justify-between px-6">
+                <div class="flex flex-col">
+                  <p class="toName font-bold text-2xl"></p>
+                  <p id="invoiceNumber" class="font-semibold text-[#6C757D]">
+                    Invoice #: 1
+                  </p>
+                </div>
+                <div class="flex flex-col items-end">
+                  <p class="font-bold">Amount Due:</p>
+                  <p id="amountDue" class="font-bold text-[#6C757D]">$ 0</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- address -->
+            <div
+              class="w-full px-4 flex-col md:flex-row flex text-[0.8rem] justify-between py-6 max-md:gap-2"
+            >
+              <div class="flex flex-col w-[33%]">
+                <p class="font-bold text-[0.8rem]">Billed to:</p>
+                <p class="toName"></p>
+                <p id="addressTo" class=""></p>
+              </div>
+              <div class="flex flex-col w-[33%]">
+                <p class="font-bold text-[0.8rem]">Billed from:</p>
+                <p class="fromName"></p>
+                <p id="addressFrom" class=""></p>
+              </div>
+              <div class="flex flex-col w-[33%]">
+                <p class="font-bold text-[0.8rem]">Date of issue:</p>
+                <p id="dueDate" class=""></p>
+              </div>
+            </div>
+
+            <!-- bill qty... -->
+            <div class="w-full px-4 pb-4">
+              <!-- Hardcode values -->
+              <div class="flex w-full border-t border-b py-2">
+                <p class="uppercase w-[10%] font-bold text-[0.8rem]">qty</p>
+                <p class="uppercase w-[50%] md:w-[60%] font-bold text-[0.8rem]">
+                  description
+                </p>
+                <p class="uppercase w-[20%] md:w-[10%] font-bold text-[0.8rem]">
+                  price
+                </p>
+                <p class="uppercase w-[20%] font-bold text-[0.8rem]">amount</p>
+              </div>
+              <!-- Items list -->
+              <div class="items-container-bill flex flex-col">
+                <!-- <div class="flex w-full border-b py-2">
+                  <p class="qty-bill uppercase w-[10%] text-[0.8rem]">3</p>
+                  <p class="des-bill uppercase w-[60%] text-[0.8rem]">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Pariatur perspiciatis animi tempore quibusdam cupiditate
+                    eveniet aliquid laboriosam fugiat consequatur? Beatae.
+                  </p>
+                  <p class="qty-price uppercase w-[10%] text-[0.8rem]">$33</p>
+                  <p class="qty-amount uppercase w-[20%] text-[0.8rem]">
+                    $33000
+                  </p>
+                </div>
+                <div class="flex w-full border-b py-2">
+                  <p class="qty-bill uppercase w-[10%] text-[0.8rem]">3</p>
+                  <p class="des-bill uppercase w-[60%] text-[0.8rem]">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Pariatur perspiciatis animi tempore quibusdam cupiditate
+                    eveniet aliquid laboriosam fugiat consequatur? Beatae.
+                  </p>
+                  <p class="qty-price uppercase w-[10%] text-[0.8rem]">$33</p>
+                  <p class="qty-amount uppercase w-[20%] text-[0.8rem]">
+                    $33000
+                  </p>
+                </div>
+                <div class="flex w-full border-b py-2">
+                  <p class="qty-bill uppercase w-[10%] text-[0.8rem]">3</p>
+                  <p class="des-bill uppercase w-[60%] text-[0.8rem]">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Pariatur perspiciatis animi tempore quibusdam cupiditate
+                    eveniet aliquid laboriosam fugiat consequatur? Beatae.
+                  </p>
+                  <p class="qty-price uppercase w-[10%] text-[0.8rem]">$33</p>
+                  <p class="qty-amount uppercase w-[20%] text-[0.8rem]">
+                    $33000
+                  </p>
+                </div>
+                <div class="flex w-full border-b py-2">
+                  <p class="qty-bill uppercase w-[10%] text-[0.8rem]">3</p>
+                  <p class="des-bill uppercase w-[60%] text-[0.8rem]">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Pariatur perspiciatis animi tempore quibusdam cupiditate
+                    eveniet aliquid laboriosam fugiat consequatur? Beatae.
+                  </p>
+                  <p class="qty-price uppercase w-[10%] text-[0.8rem]">$33</p>
+                  <p class="qty-amount uppercase w-[20%] text-[0.8rem]">
+                    $33000
+                  </p>
+                </div> -->
+              </div>
+              <!-- subtotal -->
+              <div class="w-full flex justify-end border-b">
+                <div class="w-[12rem] flex justify-between items-center py-2">
+                  <p class="font-semibold text-[0.8rem] uppercase">subtotal:</p>
+                  <p id="subtotal-bill" class="text-[0.8rem]"></p>
+                </div>
+              </div>
+              <!-- total -->
+              <div class="w-full flex justify-end border-b mb-6">
+                <div class="w-[12rem] flex justify-between items-center py-2">
+                  <p class="font-semibold text-[0.8rem] uppercase">total:</p>
+                  <p id="total-bill" class="text-[0.8rem]">$3000</p>
+                </div>
+              </div>
+              <!-- buttons -->
+              <div class="w-full flex justify-between">
+                <button
+                  class="w-[49%] py-2 bg-blue-600 text-white text-[0.8rem] font-semibold rounded-md flex justify-center items-center btns"
+                >
+                  <svg
+                    stroke="currentColor"
+                    fill="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 24 24"
+                    class="me-2"
+                    height="1em"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                    style="width: 15px; height: 15px; margin-top: -3px"
+                  >
+                    <path
+                      d="M20.563,3.34c-0.292-0.199-0.667-0.229-0.989-0.079l-17,8C2.219,11.429,1.995,11.788,2,12.18 c0.006,0.392,0.24,0.745,0.6,0.902L8,15.445v6.722l5.836-4.168l4.764,2.084c0.128,0.057,0.265,0.084,0.4,0.084 c0.181,0,0.36-0.049,0.52-0.146c0.278-0.169,0.457-0.463,0.479-0.788l1-15C21.021,3.879,20.856,3.54,20.563,3.34z M18.097,17.68 l-5.269-2.306L16,9.167l-7.649,4.25l-2.932-1.283L18.89,5.794L18.097,17.68z"
+                    ></path>
+                  </svg>
+                  Send Invoice
+                </button>
+                <button
+                  class="w-[49%] py-2 border border-blue-600 text-blue-600 text-[0.8rem] font-semibold rounded-md hover:bg-blue-600 hover:text-white transition-colors duration-300 flex justify-center items-center btns"
+                >
+                  <svg
+                    stroke="currentColor"
+                    fill="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 24 24"
+                    class="me-2"
+                    height="1em"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                    style="width: 16px; height: 16px; margin-top: -3px"
+                  >
+                    <path
+                      d="M18.948,11.112C18.511,7.67,15.563,5,12.004,5c-2.756,0-5.15,1.611-6.243,4.15C3.613,9.792,2.004,11.82,2.004,14 c0,2.757,2.243,5,5,5h1v-2h-1c-1.654,0-3-1.346-3-3c0-1.404,1.199-2.757,2.673-3.016l0.581-0.102l0.192-0.558 C8.153,8.273,9.898,7,12.004,7c2.757,0,5,2.243,5,5v1h1c1.103,0,2,0.897,2,2c0,1.103-0.897,2-2,2h-2v2h2c2.206,0,4-1.794,4-4 C22.004,13.119,20.699,11.538,18.948,11.112z"
+                    ></path>
+                    <path
+                      d="M13.004 14L13.004 10 11.004 10 11.004 14 8.004 14 12.004 19 16.004 14z"
+                    ></path>
+                  </svg>
+                  Download Copy
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="bg-black absolute left-0 top-0 text-white rounded-md opacity-0 hover:opacity-100 transition-opacity duration-300"
+      >
+        bait
+      </div>
+    </form>
+    <script src="script.js" defer></script>
+  </body>
+</html>
