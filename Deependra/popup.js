@@ -1,7 +1,26 @@
 import { getActiveTabURL } from "./utils.js";
 
-let addNewBook = () =>{
-    
+let addNewBook = (bookmarkbtn , bookmarkbtnTwo) =>{
+let container = document.createElement("div");
+let innerContainer = document.createElement("div");
+let containerBtn = document.createElement("div");
+
+container.textContent = bookmarkbtnTwo.desc;
+container.className = "conatiner-tittle";
+innerContainer.className = "conatiner-controls";
+
+setBookAttribute("assets/play.png" , onplay ,innerContainer );
+
+setBookAttribute("assets/delete.png" , onDeleted , innerContainer);
+
+
+containerBtn.id = "bookmark-" + bookmarkbtnTwo.time;
+containerBtn.className = "bookmark1";
+containerBtn.setAttribute("timestamp", bookmarkbtnTwo.time);
+
+containerBtn.appendChild(container);
+containerBtn.appendChild(innerContainer);
+bookmarkbtn.appendChild(containerBtn);
 };
 
 let viewBookmark = (bookmarks =[]) =>{
@@ -18,11 +37,40 @@ let viewBookmark = (bookmarks =[]) =>{
     return;
 };
 
-let onplay =(e)=>{};
+let onplay = async(e)=>{
+    let bookmarkTime = e.target.parentNode.parentNode.getAttribute("timestamp");
+    console.log(bookmarkTime);
+    let active = await getActiveTabURL();
 
-let onDeleted = (e) =>{};
+    chrome.tabs.sendMessage(active.id, {
+        type: "PLAY",
+        value: bookmarkTime,
+      });
+    };
 
-let setBookAttribute = () => {};
+let onDeleted = async(e) =>{
+    let active = await getActiveTabURL();
+    let bookmarkTime = e.target.parentNode.parentNode.getAttribute("timestamp");
+    console.log(bookmarkTime);
+
+    let bookmarkDelete = document.getElementById("bookmark-" + bookmarkTime);
+
+    bookmarkDelete.parentNode.removeChild(bookmarkDelete);
+    chrome.tabs.sendMessage(active.id, {
+        type: "DELETE",
+        value: bookmarkTime,
+      },viewBookmark);
+};
+
+let setBookAttribute = (src , event , controlElement) => {
+    let control = document.createElement("img");
+
+    control.src = src ;
+
+    control.addEventListener("click" , event);
+    controlElement.appendChild(control);
+
+};
 
 document.addEventListener( "DOMContentLoaded" , async () =>{ 
     const activeTab = await getActiveTabURL();
