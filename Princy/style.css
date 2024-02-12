@@ -1,0 +1,83 @@
+.box {
+    display: flex;
+    background-color: grey;
+
+}
+
+.gaps {
+    width: 10px;
+    background-color: aqua;
+    cursor: col-resize  ;
+}
+
+.bi-slash-square{
+    background-color: red;
+    border-radius: 25%;
+   
+
+}
+
+.text {
+    color: white;
+}
+
+.HTML_nav {
+    display: flex;
+    background-color: rgb(63, 62, 62);
+    justify-content: space-between;
+    padding-right: 5px;
+}
+
+.HTML_nav label {
+    color: white;
+    font-size: large;
+}
+
+.HTML_nav div {
+    display: flex;
+    gap: 5px;
+}
+
+.HTML {
+    width: 33%;
+}
+.parenthesis{
+    background-color: yellow;
+    color: black !important;
+}
+.bi-arrows {
+    margin-right: 0;
+    color: aliceblue !important;
+}
+
+.bi-asterisk {
+    background-color: skyblue;
+    border-radius: 25%;
+}
+
+.CSS {
+    width: 33%;
+}
+.button-box{
+    text-align: end;
+
+}
+button {
+    background-color: grey;
+    border-radius: 45%;
+    color: white;
+}
+
+.JS {
+    width: 33%;
+}
+.typingbox{
+ min-height: 70vh;
+}
+
+.textArea {
+    background-color: rgb(1, 26, 1);
+    color: white;
+    width: 100%;
+    min-height: 70vh;
+}

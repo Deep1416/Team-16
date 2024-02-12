@@ -1,0 +1,44 @@
+.box {
+  width: 230px;
+}
+
+.tittle {
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.addBkmark {
+  width: 30px;
+  height: 30px;
+}
+
+.bookmark1 {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 10px;
+}
+
+.conatiner-tittle {
+  font-size: 14px;
+}
+
+.conatiner-controls {
+  display: flex;
+  gap: 15px;
+}
+
+.conatiner-controls img {
+  width: 15px;
+  height: 15px;
+}
+
+.row {
+  text-align: center;
+  color: red;
+}
+
+.bookmark {
+  text-align: center;
+}
