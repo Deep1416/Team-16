@@ -1,17 +1,19 @@
-// pdf download
-var doc = new jsPDF();
-var specialElementHandlers = {
-  "#editor": function (element, renderer) {
-    return true;
-  },
-};
+document.querySelector("#generatePDF").addEventListener("click", () => {
+  console.log("hmm");
+  const content = document.querySelector("#bill-container");
+  html2pdf().from(content).save();
+});
 
-const content = document.querySelector("#bill-container");
-if (content) {
-  html2pdf().from(content).save("resume_template.pdf");
-}
+// $("#generatePDF").click(function () {
+//   doc.fromHTML($("#bill-container").html(), 15, 15, {
+//     width: 700,
+//     elementHandlers: specialElementHandlers,
+//   });
+//   doc.save("sample_file.pdf");
+// });
 
-// Script part
+// script part!
+
 let itemsContainer = document.querySelector(".items-container");
 
 let allItemsDetails = [];
