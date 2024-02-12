@@ -1,3 +1,17 @@
+// pdf download
+var doc = new jsPDF();
+var specialElementHandlers = {
+  "#editor": function (element, renderer) {
+    return true;
+  },
+};
+
+const content = document.querySelector("#bill-container");
+if (content) {
+  html2pdf().from(content).save("resume_template.pdf");
+}
+
+// Script part
 let itemsContainer = document.querySelector(".items-container");
 
 let allItemsDetails = [];
