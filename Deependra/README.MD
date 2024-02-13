@@ -45,6 +45,9 @@ YouTube, Chrome Extension, Bookmarking, Timeline Bookmarker, Watch Later, Timest
 
 
 ![Project Logo](./assets/bookmark.png)
+![Project Logo](./assets/delete.png)
+![Project Logo](./assets/ext-icon.png)
+![Project Logo](./assets/play.png)
 ![Extension show](./assets/d.png)
 ![Extension show bookmark no added](./assets/a.png)
 ![Added a video bookmark](./assets/b..png)
