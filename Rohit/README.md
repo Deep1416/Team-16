@@ -19,8 +19,8 @@
 <h3>Google Fonts for typography</h3>
 <h3>html2pdf for generating PDF files from HTML content</h3>
 <h1>How to Use</h1>
-Clone the repository to your local machine.
-Open the index.html file in your web browser.
+Clone the repository to your local machine.<br>
+Open the index.html file in your web browser.<br>
 Fill in the necessary details in the input fields according to your resume content.<br>
 Select the desired template type and customize the header colors.
 <br>
