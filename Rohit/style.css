@@ -1,0 +1,348 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;1,200;1,300;1,400&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body{
+    width: 100%;
+    background-color: #F3F4F6;
+}
+
+#demography-icon{
+    font-size: 40px;
+}
+
+header{
+    width: 100%;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+
+}
+
+header button{
+    background-color: green;
+    color: #FFFFFF;
+    cursor: pointer;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 5px;
+}
+
+main{
+    width: 100%;
+    display: flex;
+    padding: 1%;
+    justify-content: space-between;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    background-color: #F3F4F6;
+    margin-top: 1%;
+    padding: 1.5%;
+    padding-left: 1%;
+}
+
+form select{
+margin-top: 2%;
+margin-bottom: 2%;
+width: 100%;
+padding: 1%;
+}
+form select option{
+margin-top: 1%;
+width: 100%;
+padding: 1%;
+}
+
+form input{
+padding: 2%;
+margin: 1%;
+border-radius: 5px;
+border: 1px solid grey;
+}
+.colortype{
+    padding: 5px;
+}
+.textcolortype{
+    padding: 5px;
+}
+
+.display-info{
+    width: 60%;
+    box-shadow: grey 0px 3px 8px;
+    margin: 1%;
+    height: 1000px;
+
+
+}
+
+.displayColor{
+    width: 100%;
+    height: 100%;
+    padding: 4%;
+
+}
+
+.display-main{
+    width: 100%;
+    height: 850px;
+    display: flex;
+    
+}
+
+.display-right{
+    /* height: 778px; */
+    height: 100%;
+    width: 60%;
+    background-color: #FFFFFF;
+    margin-bottom: 0;
+
+}
+
+.display-left{
+    height: 100%;
+    margin: 3%;
+    width: 35%;
+    margin-top: 0;
+    margin-right:2%;
+}
+
+.display-right h4{
+    margin: 1%;
+    padding: 1%;
+}
+.color{
+    width: 100%;
+   height: 100%;
+   padding: 4%;
+}
+
+.color p{
+    color: #F3F4F6;
+}
+
+
+.Minimalist-main{
+    display: none;
+}
+
+.inputName{
+font-size: large;
+font-size: 30px;
+margin-bottom: 1px;
+}
+.display-info2{
+    width: 60%;
+    box-shadow: grey 0px 3px 8px;
+    margin: 1%;
+    height: 1000px;
+    display: none;
+}
+
+.display-left h4{
+    margin-top: 10%;
+}
+
+.icons{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 6%;
+}
+.ProfessionalSummary{
+    padding: 2%;
+    text-align: justify;
+    margin-left: 3.5px;
+    width: 98.2%;
+    /* height: 100%; */
+}
+
+.jobClass{
+    font-size: large;
+    font-size: 20px; 
+}
+
+
+.mailClass, .cityClass, .phoneClass{
+    
+    font-size: 15px;
+   
+}
+
+/* .phoneDiv .mailDiv .locationDiv{
+    display: flex;
+    flex-direction: row;
+
+} */
+
+.skills .mailClass{
+    display: flex;
+    flex-wrap: wrap;
+    width: 30%;
+}
+
+button{
+    background-color: green;
+    padding: 8px;
+    color: white;
+    margin: 1%;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.employ{
+    display: none;
+    
+}
+
+.employDivClass, .projectDIV, .educationDIV{
+    
+    margin: 0.5%;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.educatediv{
+    margin: 0.5%;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    
+}
+.projectdiv{
+    display: none;
+    
+}
+.educationdiv{
+    display: none;
+    
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 200,
+  'GRAD' 0,
+  'opsz' 20
+
+}
+
+.mailDiv, .phoneDiv, .locationDiv{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+hr{
+    background-color: black;
+}
+
+#skillHR, #contactHR{
+    background-color: black;
+    width: 80%;
+}
+
+
+ul li {
+    text-decoration: none;
+    list-style-type: none;
+}
+ul{
+    display: flex;
+    flex-direction: row;
+}
+
+.experience{
+    margin: 0.5%;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    
+}
+.experience p{
+    display: block;
+    
+}
+
+.expdate, .projectdate, .educatdate{
+    
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+}
+
+.summaryDivClass{
+    margin-left: 0.5%;
+    padding: 1.5%;
+    padding-bottom: 0%;
+}
+
+
+.skillClass{
+background-color: black;
+color: #FFFFFF;
+}
+
+.colorcontainer{
+    height: 150px;
+}
+
+#display-info2-display-right{
+    height: 100%;
+    width: 100%;
+    background-color: #FFFFFF;
+    margin-bottom: 0;
+}
+
+
+@media only screen and (240px<=width <=768px){
+
+
+    main {   
+        flex-direction: column;
+}
+
+form{
+    width: 100%;
+}
+
+.display-info{
+    width: 98%;
+}
+
+.display-right {
+margin-top: 4px;
+}
+
+.display-main{
+    height: 886px;
+}
+
+.colorcontainer {
+    height: 110px;
+}
+
+.mailDiv, .phoneDiv, .locationDiv{
+    text-align: none;
+}
+
+}
+
+

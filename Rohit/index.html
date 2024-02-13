@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Template</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://kit.fontawesome.com/cfb05a103b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,-25" />
+    <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
+
+</head>
+
+<body>
+    <header>
+        <span class="material-symbols-outlined" id="demography-icon">
+            demography
+            </span>
+        <button id="printbtn"> Download PDF</button>
+    </header>
+
+
+    <main>
+        <form action="" class="info">
+            <h3>Template Type</h3>
+
+
+            <select name="template-type" id="type">
+
+                <option class="two-column" value="Two Column">Two Column</option>
+                <option class="minimalist" value="Minimalist">Minimalist</option>
+            </select>
+
+            <label for="headercolor">Header Color</label>
+            <input type="color" name="headercolor" id="colortype" class="colortype">
+            <label for="headertextcolor" class="textcolor">Header-Text Color</label>
+            <input type="color" name="" id="colortype" class="textcolortype">
+            <h2>Personal Details</h2>
+
+            <input type="text" placeholder="Name" class="Inputname">
+            <input type="email" placeholder="E-mail ID" class="Inputemail">
+            <input type="text" placeholder="Phone" class="Inputphone">
+            <input type="text" placeholder="City, Country" class="Inputcity">
+
+            <h2>Professional Details</h2>
+            <input type="text" placeholder="Wanted job Title" class="job">
+            <textarea class="ProfessionalSummary" placeholder="Professional Summary"></textarea>
+            <input type="text" placeholder="Skills" class="InputSkills">
+
+            <button action="" class="employment">Add Employment</button>
+
+            <div class="empcontainer">
+
+            </div>
+         
+            <button action="" class="project">Add Project</button>
+
+            <div class="projectcontainer">
+
+            </div>
+           
+
+            <h2>Educational Details</h2>
+            <button action="" class="education">Add Education</button>
+            <div class="educontainer">
+
+            </div>
+           
+
+
+
+
+        </form>
+        <div class="display-info" id="pageDisplay">
+<div class="colorcontainer">
+
+
+</div>
+            <div class="display-main">
+
+
+                <div class="display-left">
+
+                    <h4>SKILLS</h4>
+                    <hr>
+                    <div class="skills">
+                     <p class="skillpara"></p>
+                    </div>
+                    <h4>CONTACT</h4>
+                    <hr>
+                    <div class="icons">
+
+
+                        <div class="mailDiv">
+                            <span class="material-symbols-outlined">
+                                mail
+                                </span>
+
+                                <span class="mail">
+
+                                </span>
+                        </div>
+                        <div class="phoneDiv">
+                            <span class="material-symbols-outlined">
+                                call
+                                </span>
+                                <span class="phone">
+
+                                </span>
+                        </div>
+                        <div class="locationDiv">
+                            <span class="material-symbols-outlined">
+                                location_on
+                                </span>
+                                <span class="location">
+
+                                </span>
+                        </div>
+
+
+
+                    </div>
+
+
+                </div>
+                <div class="display-right">
+                    <h4> SUMMARY</h4>
+                    <hr>
+                    <div class="summary">
+                    <p class="summarypara"></p>
+                    </div>
+
+
+                    <h4>PROFESSIONAL EXPERIENCE</h4>
+                    <hr>
+                    <div class="profexp">
+                
+                    </div>
+                  
+                    <h4> PROJECTS</h4>
+                    <hr>
+                    <div class="projectdisp">
+
+                    </div>
+                    
+                    <h4> EDUCATION</h4>
+                    <hr>
+
+                    <div class="edudisp">
+                    </div>
+                       
+                       
+            </div>
+
+
+        </div>
+        
+
+
+        </div>
+        <div class="display-info2" id="pageDisplay">
+<div class="colorcontainer">
+    <div class="icons">
+
+
+        <div class="mailDiv">
+            <span class="material-symbols-outlined">
+                mail
+                </span>
+
+                <span class="mail">
+
+                </span>
+        </div>
+        <div class="phoneDiv">
+            <span class="material-symbols-outlined">
+                call
+                </span>
+                <span class="phone">
+
+                </span>
+        </div>
+        <div class="locationDiv">
+            <span class="material-symbols-outlined">
+                location_on
+                </span>
+                <span class="location">
+
+                </span>
+        </div>
+
+
+
+    </div>
+
+</div>
+            <div class="display-main">
+
+<!-- 
+                <div class="display-left"> -->
+
+                    <!-- <h4>SKILLS</h4>
+                    <hr>
+                    <div class="skills">
+                     <p class="skillpara"></p>
+                    </div> -->
+
+                    <!-- <h4>CONTACT</h4>
+                    <hr>
+                    <div class="icons">
+
+
+                        <div class="mailDiv">
+                            <span class="material-symbols-outlined">
+                                mail
+                                </span>
+
+                                <span class="mail">
+
+                                </span>
+                        </div>
+                        <div class="phoneDiv">
+                            <span class="material-symbols-outlined">
+                                call
+                                </span>
+                                <span class="phone">
+
+                                </span>
+                        </div>
+                        <div class="locationDiv">
+                            <span class="material-symbols-outlined">
+                                location_on
+                                </span>
+                                <span class="location">
+
+                                </span>
+                        </div>
+
+
+
+                    </div> -->
+
+
+                <!-- </div> -->
+                <div class="display-right" id="display-info2-display-right">
+                    <h4> SUMMARY</h4>
+                    <hr>
+                    <div class="summary">
+                    <p class="summarypara"></p>
+                    </div>
+
+                    <h4>SKILLS</h4>
+                    <hr>
+                    <div class="skills">
+                     <p class="skillpara"></p>
+                    </div>
+
+                    <h4>PROFESSIONAL EXPERIENCE</h4>
+                    <hr>
+                    <div class="profexp">
+                
+                    </div>
+                  
+                    <h4> PROJECTS</h4>
+                    <hr>
+                    <div class="projectdisp">
+
+                    </div>
+                    
+                    <h4> EDUCATION</h4>
+                    <hr>
+
+                    <div class="edudisp">
+                    </div>
+                       
+                       
+            </div>
+
+
+        </div>
+        
+
+
+        </div>
+        
+        
+
+    </main>
+    <script src="./script.js"></script>
+    <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
+</body>
+
+</html>
