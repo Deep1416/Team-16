@@ -1,20 +1,31 @@
 .box {
     display: flex;
-    background-color: grey;
-
+    background-color: rgb(63, 62, 62);
 }
 
 .gaps {
     width: 10px;
-    background-color: aqua;
-    cursor: col-resize  ;
+    background-color: rgb(63, 62, 62);
+    cursor: col-resize;
 }
 
-.bi-slash-square{
+.slash {
+    color: black !important;
     background-color: red;
     border-radius: 25%;
-   
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
 
+
+}
+
+p {
+    text-align: center;
+    color: white;
+    background-color: black;
+    cursor: pointer;
 }
 
 .text {
@@ -26,6 +37,7 @@
     background-color: rgb(63, 62, 62);
     justify-content: space-between;
     padding-right: 5px;
+
 }
 
 .HTML_nav label {
@@ -41,27 +53,40 @@
 .HTML {
     width: 33%;
 }
-.parenthesis{
+
+.parenthesis {
     background-color: yellow;
+    display: inline-flex;
+    justify-content: center;
+    border-radius: 25%;
+    width: 20px;
     color: black !important;
 }
+
 .bi-arrows {
     margin-right: 0;
     color: aliceblue !important;
+
 }
 
 .bi-asterisk {
-    background-color: skyblue;
+    background-color: rgb(11, 176, 241);
     border-radius: 25%;
 }
 
 .CSS {
     width: 33%;
 }
-.button-box{
-    text-align: end;
 
+.click {
+    position: relative;
 }
+
+.button-box {
+    position: absolute;
+    right: 0%;
+}
+
 button {
     background-color: grey;
     border-radius: 45%;
@@ -71,13 +96,28 @@ button {
 .JS {
     width: 33%;
 }
-.typingbox{
- min-height: 70vh;
+
+.typingbox {
+    background-color: black;
+    padding-bottom: 0.5px;
+    /* text-align: center; */
+    border-bottom-right-radius: 2%;
+    border-bottom-left-radius: 2%;
+    /* resize: horizontal; */
+    /* overflow: x hidden; */
 }
 
 .textArea {
-    background-color: rgb(1, 26, 1);
+    background-color: rgb(24, 37, 24);
     color: white;
     width: 100%;
-    min-height: 70vh;
+    height: 40vh;
+    
+}
+
+.outputBox {
+    width: 100%;
+    height: 42vh;
+    background-color: red;
+
 }
