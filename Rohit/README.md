@@ -26,6 +26,6 @@ Select the desired template type and customize the header colors.
 Click the "Add Employment", "Add Project", or "Add Education" buttons to add respective sections.
 Click the "Download PDF" button to download your resume in PDF format.
 Contributors
-[]
+<h3>GitHub profile</h3> :- @Rohitphalke2406
 License
 This project is licensed under the MIT License.
