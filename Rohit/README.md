@@ -21,10 +21,11 @@
 <h1>How to Use</h1>
 Clone the repository to your local machine.
 Open the index.html file in your web browser.
-Fill in the necessary details in the input fields according to your resume content.
+Fill in the necessary details in the input fields according to your resume content.<br>
 Select the desired template type and customize the header colors.
-Click the "Add Employment", "Add Project", or "Add Education" buttons to add respective sections.
-Click the "Download PDF" button to download your resume in PDF format.
-Contributors
+<br>
+Click the "Add Employment", "Add Project", or "Add Education" buttons to add respective sections.<br>
+Click the "Download PDF" button to download your resume in PDF format.<br>
+<h2>Contributors</h2>
 <h3>GitHub profile :-</h3>  @Rohitphalke2406
 
