@@ -1,144 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css">
     <script>
-      function aman() {
-        let a = document.getElementById("htmlData").value;
-        let b = document.getElementById("cssData").value;
-        let c = document.getElementById("jsData").value;
+        function aman() {
+            const htmlCode = document.getElementById("htmlData").value;
+            const cssCode = document.getElementById("cssData").value;
+            const jsCode = document.getElementById("jsData").value;
 
-        const styleOpen = "<style>";
-        const styleClose = "</style>";
-        const scriptOpen = "<script>";
-        const scriptClose = "<" + "/" + "script>";
-        const result = `${a}${scriptOpen}${c}${scriptClose}${styleOpen}${b}${styleClose}`;
-        document.getElementById("output").innerHTML = result;
-      }
+            const output = document.getElementById("output").contentDocument;
+
+            const styleElement = output.createElement('style');
+            styleElement.textContent = cssCode;
+            output.head.appendChild(styleElement);
+
+            const scriptElement = output.createElement('script');
+            scriptElement.textContent = jsCode;
+            output.head.appendChild(scriptElement);
+            output.body.innerHTML = htmlCode;
+        }
+
+        function copyContent(id) {
+
+            var copyHtml = document.getElementById(id);
+            copyHtml.select();
+            navigator.clipboard.writeText(copyHtml.value);
+
+        }
     </script>
-  </head>
-  <body>
+</head>
+
+<body>
+
     <div class="box">
-      <div class="HTML">
-        <nav class="HTML_nav">
-          <div>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              fill="current-color"
-              class="bi-slash-square"
-              viewBox="0 0 16 16"
-            >
-              <path
-                d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"
-              />
-              <path
-                d="M11.354 4.646a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708l6-6a.5.5 0 0 1 .708 0"
-              />
-            </svg>
-            <label for="text">HTML</label>
-          </div>
+        <div class="HTML">
+            <nav class="HTML_nav">
+                <div>
+                    <label for="text" class="slash"> / </label>
+                    <label for="text">HTML</label>
+                </div>
 
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            class="bi-arrows"
-            viewBox="0 0 16 16"
-          >
-            <path
-              d="M1.146 8.354a.5.5 0 0 1 0-.708l2-2a.5.5 0 1 1 .708.708L2.707 7.5h10.586l-1.147-1.146a.5.5 0 0 1 .708-.708l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L13.293 8.5H2.707l1.147 1.146a.5.5 0 0 1-.708.708z"
-            />
-          </svg>
-        </nav>
-        <div class="typing box">
-          <textarea class="textArea" id="htmlData">
-Welcome to the Live Code Editor!</textarea
-          >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi-arrows"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M1.146 8.354a.5.5 0 0 1 0-.708l2-2a.5.5 0 1 1 .708.708L2.707 7.5h10.586l-1.147-1.146a.5.5 0 0 1 .708-.708l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L13.293 8.5H2.707l1.147 1.146a.5.5 0 0 1-.708.708z" />
+                </svg>
+            </nav>
+            <div class="typingbox">
+                <textarea class="textArea" id="htmlData" spellcheck="false">Welcome to the Live Code Editor!</textarea>
+                <p onclick="copyContent('htmlData')">Copy HTML</p>
+            </div>
         </div>
-      </div>
-      <div class="gaps" id="resizable"></div>
+        <div class="gaps" id="resizable">
+        </div>
 
-      <div class="CSS">
-        <nav class="HTML_nav">
-          <div>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              fill="currentColor"
-              class="bi-asterisk"
-              viewBox="0 0 16 16"
-            >
-              <path
-                d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1"
-              />
-            </svg>
-            <label for="text">CSS</label>
-          </div>
+        <div class="CSS">
+            <nav class="HTML_nav">
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                        class="bi-asterisk" viewBox="0 0 16 16">
+                        <path
+                            d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1" />
+                    </svg>
+                    <label for="text">CSS</label>
+                </div>
 
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            class="bi-arrows"
-            viewBox="0 0 16 16"
-          >
-            <path
-              d="M1.146 8.354a.5.5 0 0 1 0-.708l2-2a.5.5 0 1 1 .708.708L2.707 7.5h10.586l-1.147-1.146a.5.5 0 0 1 .708-.708l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L13.293 8.5H2.707l1.147 1.146a.5.5 0 0 1-.708.708z"
-            />
-          </svg>
-        </nav>
-        <div>
-          <div class="textArea" name="">
-            <div class="button-box">
-              <button onclick="aman()">clear</button>
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi-arrows"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M1.146 8.354a.5.5 0 0 1 0-.708l2-2a.5.5 0 1 1 .708.708L2.707 7.5h10.586l-1.147-1.146a.5.5 0 0 1 .708-.708l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L13.293 8.5H2.707l1.147 1.146a.5.5 0 0 1-.708.708z" />
+                </svg>
+
+            </nav>
+            <div>
+                <div class="click">
+                    <div class="button-box">
+                        <button onclick="aman()">clear</button>
+                    </div>
+                    <div class="typingbox">
+                        <textarea class="textArea" id="cssData" spellcheck="false">
+        body{
+        background-color:red;
+        }
+        h1{
+        color: cyan;
+        text-align: center;
+        margin-top: 10%;
+        }
+        </textarea>
+                        <p onclick="copyContent('cssData')">Copy CSS</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="gaps" id="resizable">
+        </div>
+        <div class="JS">
+            <nav class="HTML_nav">
+                <div>
+                    <label for="text" class="parenthesis">( )</label>
+                    <label for="text">JS</label>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi-arrows"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M1.146 8.354a.5.5 0 0 1 0-.708l2-2a.5.5 0 1 1 .708.708L2.707 7.5h10.586l-1.147-1.146a.5.5 0 0 1 .708-.708l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L13.293 8.5H2.707l1.147 1.146a.5.5 0 0 1-.708.708z" />
+                </svg>
+            </nav>
+            <div class="typingbox">
+                <textarea class="textArea" name="" id="jsData" spellcheck="false"></textarea>
+                <p onclick="copyContent('jsData')">Copy JS</p>
             </div>
 
-            <textarea class="textArea" id="cssData">
-                    body{
-                    background-color:red;
-                    }
-                    h1{
-                    color: cyan;
-                    text-align: center;
-                    margin-top: 10%;
-                    }
-                    </textarea
-            >
-          </div>
         </div>
-      </div>
-      <div class="gaps" id="resizable"></div>
-      <div class="JS">
-        <nav class="HTML_nav">
-          <div>
-            <label for="text" class="parenthesis">( )</label>
-            <label for="text">JS</label>
-          </div>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            class="bi-arrows"
-            viewBox="0 0 16 16"
-          >
-            <path
-              d="M1.146 8.354a.5.5 0 0 1 0-.708l2-2a.5.5 0 1 1 .708.708L2.707 7.5h10.586l-1.147-1.146a.5.5 0 0 1 .708-.708l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L13.293 8.5H2.707l1.147 1.146a.5.5 0 0 1-.708.708z"
-            />
-          </svg>
-        </nav>
-        <div>
-          <textarea class="textArea" name="" id="jsData"></textarea>
-        </div>
-      </div>
     </div>
 
     <!-- output box -->
-    <div id="output"></div>
-  </body>
+    <div>
+        <iframe class="outputBox" id="output"></iframe>
+    </div>
+</body>
+
 </html>
