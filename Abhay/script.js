@@ -205,7 +205,7 @@ function calculateTotalSub() {
   document.getElementById("discount").innerText = discountVal;
   document.getElementById("tax").innerText = taxVal;
 
-  total = discountVal + taxVal + subTotal;
+  total = taxVal + subTotal - discountVal;
   document.getElementById("total").innerText = total;
 }
 
