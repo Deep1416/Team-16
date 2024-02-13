@@ -1,6 +1,6 @@
 {
   "name": "My Yt Bookmarks",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Saving timestamps in YT videos",
   "manifest_version": 3,
   "permissions": ["storage", "tabs"],
