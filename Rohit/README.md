@@ -5,19 +5,19 @@
 <h1>Features</h1>
 <h2>Two template types: "Two Column" and "Minimalist".</h2>
 <h2>Customizable header color and header-text color.</h2>
-Input fields for personal details including name, email, phone, and location.
-Input fields for professional details such as job title, professional summary, and skills.
-Ability to add multiple employment records including job title, employer, start date, end date, and description.
-Ability to add multiple projects including project title, start date, end date, and description.
-Ability to add multiple educational qualifications including qualification, school/college, start date, end date, and description.
-Download resume as PDF functionality.
-Technologies Used
-HTML
-CSS
-JavaScript
-Font Awesome for icons
-Google Fonts for typography
-html2pdf for generating PDF files from HTML content
+<h2>Input fields for personal details including name, email, phone, and location.</h2>
+<h2>Input fields for professional details such as job title, professional summary, and skills.</h2>
+<h2>Ability to add multiple employment records including job title, employer, start date, end date, and description.</h2>
+<h2>Ability to add multiple projects including project title, start date, end date, and description.</h2>
+<h2>Ability to add multiple educational qualifications including qualification, school/college, start date, end date, and description.</h2>
+<h2>Download resume as PDF functionality.</h2>
+<h1>Technologies Used</h1>
+<h3>HTML</h3>
+<h3>CSS</h3>
+<h3>JavaScript</h3>
+<h3>Font Awesome for icons</h3>
+<h3>Google Fonts for typography</h3>
+<h3>html2pdf for generating PDF files from HTML content</h3>
 How to Use
 Clone the repository to your local machine.
 Open the index.html file in your web browser.
