@@ -18,7 +18,7 @@
 <h3>Font Awesome for icons</h3>
 <h3>Google Fonts for typography</h3>
 <h3>html2pdf for generating PDF files from HTML content</h3>
-How to Use
+<h1>How to Use</h1>
 Clone the repository to your local machine.
 Open the index.html file in your web browser.
 Fill in the necessary details in the input fields according to your resume content.
@@ -26,6 +26,6 @@ Select the desired template type and customize the header colors.
 Click the "Add Employment", "Add Project", or "Add Education" buttons to add respective sections.
 Click the "Download PDF" button to download your resume in PDF format.
 Contributors
-[Your Name or Username]
+[]
 License
 This project is licensed under the MIT License.
