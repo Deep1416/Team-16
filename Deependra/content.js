@@ -13,13 +13,19 @@
     } else if (type === "PLAY") {
       youtubePlayer.currentTime = value;
     } else if (type === "DELETE") {
-      currentVideoBookmarks = currentVideoBookmarks.filter(
-        (b) => b.time != value
-      );
-      chrome.storage.sync.set({
-        [currentVideo]: JSON.stringify(currentVideoBookmarks),
-      });
-      response(currentVideoBookmarks);
+
+      chrome.storage.sync.get([currentVideo] , (item) =>{
+        currentVideoBookmarks = JSON.parse(item[currentVideo])
+        currentVideoBookmarks = currentVideoBookmarks.filter(
+          (b) => b.time != value
+        );
+        chrome.storage.sync.set({
+          [currentVideo]: JSON.stringify(currentVideoBookmarks),
+        });
+      })
+
+      
+      // response(currentVideoBookmarks);
     }
   });
 

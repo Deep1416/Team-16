@@ -61,7 +61,6 @@ let onDeleted = async (e) => {
       type: "DELETE",
       value: bookmarkTime,
     },
-    viewBookmark
   );
 };
 
