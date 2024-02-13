@@ -101,7 +101,7 @@ border: 1px solid grey;
 }
 
 .display-right{
-    /* height: 778px; */
+    
     height: 100%;
     width: 60%;
     background-color: #FFFFFF;
@@ -164,7 +164,7 @@ margin-bottom: 1px;
     text-align: justify;
     margin-left: 3.5px;
     width: 98.2%;
-    /* height: 100%; */
+   
 }
 
 .jobClass{
@@ -179,11 +179,7 @@ margin-bottom: 1px;
    
 }
 
-/* .phoneDiv .mailDiv .locationDiv{
-    display: flex;
-    flex-direction: row;
 
-} */
 
 .skills .mailClass{
     display: flex;

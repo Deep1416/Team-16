@@ -311,19 +311,19 @@ function displayFunctionMinimalist() {
 
     colorDIV.setAttribute("class", "color");
 
-    // Set up the summary paragraph
+   
     summaryDiv.innerHTML = `<p class="summarypara"></p>`;
 
-    // Set up the color div with input fields
+ 
     colorDIV.innerHTML = `
         <p class="inputName"></p>
         <p class="jobClass"></p>
     `;
 
-    // Append the created elements to the color container
+    
     colorContainer.appendChild(colorDIV);
 
-    // Get references to the elements we want to update
+    
     let name = document.querySelector(".inputName");
     let job = document.querySelector(".jobClass");
     let Mail = document.querySelector(".mail");
@@ -332,7 +332,6 @@ function displayFunctionMinimalist() {
     let summary = document.querySelector(".summarypara");
     let skill = document.querySelector(".skillpara");
 
-    // Attach event listeners to update the elements on input change
     InputName.addEventListener("input",(e)=>{
         name.innerHTML = e.target.value;
     });
