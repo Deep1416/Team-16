@@ -1,3 +1,19 @@
+document.querySelector("#generatePDF").addEventListener("click", () => {
+  console.log("hmm");
+  const content = document.querySelector("#bill-container");
+  html2pdf().from(content).save();
+});
+
+// $("#generatePDF").click(function () {
+//   doc.fromHTML($("#bill-container").html(), 15, 15, {
+//     width: 700,
+//     elementHandlers: specialElementHandlers,
+//   });
+//   doc.save("sample_file.pdf");
+// });
+
+// script part!
+
 let itemsContainer = document.querySelector(".items-container");
 
 let allItemsDetails = [];
@@ -189,7 +205,7 @@ function calculateTotalSub() {
   document.getElementById("discount").innerText = discountVal;
   document.getElementById("tax").innerText = taxVal;
 
-  total = discountVal + taxVal + subTotal;
+  total = taxVal + subTotal - discountVal;
   document.getElementById("total").innerText = total;
 }
 
